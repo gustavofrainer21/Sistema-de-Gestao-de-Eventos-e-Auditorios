@@ -1,0 +1,9 @@
+# Relato Individual – Expectativas sobre IA Generativa e Engenharia de Software
+
+O desenvolvimento deste projeto de Sistema de Gestão de Eventos e Auditórios representa uma oportunidade muito importante para aplicar os conhecimentos teóricos da graduação em um contexto mais próximo da realidade. Muitas vezes estudamos algoritmos, estruturas de dados e linguagens de programação de forma isolada, mas é ao construir um sistema completo que compreendemos a complexidade de transformar uma necessidade real em uma solução funcional e bem estruturada.
+
+Nesse cenário, minha expectativa em relação ao uso da Inteligência Artificial Generativa concentra-se em três pilares principais: aceleração do ciclo de entrega, melhoria na modelagem de regras de negócio complexas e elevação do padrão de qualidade técnica.
+
+Na garantia de qualidade e cobertura de testes, a geração automatizada de testes unitários e de integração é uma das áreas de maior valor agregado. A IA facilita a criação de cenários de borda que frequentemente passam despercebidos, como sobreposição de horários de reserva em frações de minutos, cancelamentos simultâneos ou concorrência na escolha de assentos. Já na refatoração e manutenibilidade, o uso de modelos generativos para analisar code smells, sugerir padrões de projeto e documentar fluxos de trabalho eleva a legibilidade do código-fonte, tornando a base de código mais resiliente e fácil de escalar.
+
+A IA Generativa não substitui o raciocínio crítico da Engenharia de Software, mas redefine o trabalho: o desenvolvedor deixa de ser apenas um digitador de sintaxe para atuar como um arquiteto e revisor estratégico. A capacidade de direcionar prompts precisos, avaliar criticamente as sugestões geradas e garantir a consistência e segurança dos dados continuará sendo o diferencial essencial no sucesso de sistemas como este.
