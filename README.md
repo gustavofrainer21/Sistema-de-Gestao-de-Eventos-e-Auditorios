@@ -6,6 +6,7 @@
 <h5>Gabriel Magdaleno</h5>
 <h5>Gustavo Frainer</h5>
 
+
 <h3>Objetivos do Projeto</h3>
 
 • Reduzir o esforço operacional necessário para organizar eventos acadêmicos.
