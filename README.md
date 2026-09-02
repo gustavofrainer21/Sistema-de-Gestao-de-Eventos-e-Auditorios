@@ -1,11 +1,12 @@
 # Sistema de Gestão de Eventos e Auditórios
 
 <h3>Nomes dos Integrantes:</h3>
-<h5>André Drumond</h5>
-<h5>Eduardo Bighetti</h5>
-<h5>Gabriel Magdaleno</h5>
-<h5>Gustavo Frainer</h5>
+<p>André Drumond</p>
+<p>Eduardo Bighetti</p>
+<p>Gabriel Magdaleno</p>
+<p>Gustavo Frainer</p>
 
+<br>
 
 <h3>Objetivos do Projeto</h3>
 
