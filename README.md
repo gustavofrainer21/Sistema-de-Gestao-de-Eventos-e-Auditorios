@@ -6,7 +6,7 @@
 <p>Gabriel Magdaleno</p>
 <p>Gustavo Frainer</p>
 
-<br>
+<br><br>
 
 <h3>Objetivos do Projeto</h3>
 
