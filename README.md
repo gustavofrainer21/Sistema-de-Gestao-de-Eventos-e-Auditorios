@@ -1,14 +1,14 @@
 # Sistema de Gestão de Eventos e Auditórios
 
-<h3>Nomes dos Integrantes:</h3>
+<h2>Nomes dos Integrantes</h2>
 <p>André Drumond</p>
 <p>Eduardo Bighetti</p>
 <p>Gabriel Magdaleno</p>
 <p>Gustavo Frainer</p>
 
-<br><br>
+<br>
 
-<h3>Objetivos do Projeto</h3>
+<h2>Objetivos do Projeto</h2>
 
 • Reduzir o esforço operacional necessário para organizar eventos acadêmicos. <br>
 • Evitar conflitos de uso de auditórios e apoiar a escolha de espaços compatíveis com a quantidade
