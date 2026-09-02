@@ -1,1 +1,7 @@
+# Registro de Pompts em IAs para elaboração do Projeto
 
+<h2>Claude</h2>
+
+<h4>Prompt para geração dos requisitos funcionais:</h4>
+<h5>Foi fixado o arquivo PDF de "Visão do Projeto", e o arquivo DOT de "Template - Requisitos"</h5>
+<p>Prompt: "Baseando-se no arquivo PDF de visão do projeto, e no arquivo DOT que deve ser usado como um modelo de template para a elaboração do projeto, você deve apontar os requisitos funcionais da proposta do projeto, seguindo a template sugerida." </p>
