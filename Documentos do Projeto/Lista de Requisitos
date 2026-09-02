@@ -1,1 +1,99 @@
+3.1	Requisitos Funcionais
+  Esta seção descreve os requisitos funcionais do Sistema de Gestão de Eventos e Auditórios, organizados por recurso/funcionalidade, 
+com base no documento de Visão e Escopo do projeto. Cada requisito funcional (RF) representa uma capacidade que o sistema deve prover; 
+as regras de negócio essenciais (RN) relacionadas são indicadas entre parênteses quando aplicável.
 
+
+3.1.1	RF01 – Acesso e Perfis de Usuário
+  O sistema deve controlar o acesso de usuários e distinguir suas permissões de acordo com o perfil, garantindo que operações 
+administrativas sejam restritas a usuários autorizados.
+  •	O sistema deve permitir que usuários acessem a plataforma de forma identificada (autenticada).
+  •	O sistema deve distinguir, no mínimo, os perfis Administrador/Organizador e Participante.
+  •	O sistema deve restringir as operações administrativas (cadastro de locais, criação de eventos, check-in etc.) exclusivamente a 
+    usuários com perfil autorizado.
+
+
+3.1.2	RF02 – Cadastro e Gestão de Auditórios ou Locais
+  O sistema deve permitir ao administrador manter o cadastro dos locais utilizados para a realização de eventos.
+  •	O sistema deve permitir cadastrar, consultar, alterar e desativar locais.
+  •	O sistema deve registrar, no mínimo, nome/identificação do local, capacidade e informações de localização.
+  •	O sistema deve permitir registrar indisponibilidades ou bloqueios de agenda de um local quando necessário.
+
+
+3.1.3	RF03 – Consulta de Disponibilidade de Locais
+  O sistema deve permitir consultar quais locais estão disponíveis para uma data, horário e capacidade desejados.
+  •	O sistema deve permitir consultar locais disponíveis para uma data e um intervalo de horário informados.
+  •	O sistema deve considerar a capacidade necessária para o público esperado na consulta.
+  •	O sistema deve retornar somente locais compatíveis com o horário e, quando informada, com a capacidade requerida.
+  •	O sistema deve informar ao usuário quando não houver local disponível que atenda aos critérios informados.
+
+
+3.1.4	RF04 – Cadastro e Gestão de Eventos
+  O sistema deve permitir ao administrador criar e manter os eventos oferecidos pela instituição.
+  •	O sistema deve permitir criar, consultar, alterar e encerrar eventos.
+  •	O sistema deve registrar título, descrição, data, horário de início e término, local e quantidade de vagas do evento.
+  •	O sistema deve permitir organizar um evento principal com subeventos, como palestras ou sessões vinculadas.
+  •	O sistema deve apresentar o estado do evento (por exemplo: aberto, lotado, encerrado ou realizado).
+  •	O sistema deve impedir a associação de eventos ao mesmo local em horários conflitantes (RN01, RN02).
+
+
+3.1.5	RF05 – Catálogo e Consulta de Eventos
+  O sistema deve apresentar aos participantes os eventos disponíveis para que estes possam decidir sobre sua inscrição.
+  •	O sistema deve apresentar aos participantes a lista de eventos disponíveis.
+  •	O sistema deve exibir informações suficientes para a decisão de inscrição, incluindo data, horário, local e situação das vagas.
+  •	O sistema deve permitir acessar os detalhes do evento e, quando existirem, seus subeventos.
+
+
+3.1.6	RF06 – Inscrição em Eventos
+  O sistema deve permitir que participantes se inscrevam nos eventos oferecidos, respeitando a disponibilidade de vagas.
+  •	O sistema deve permitir que um participante se inscreva em um evento aberto.
+  •	O sistema deve confirmar imediatamente a inscrição enquanto houver vagas disponíveis (RN03).
+  •	O sistema deve impedir inscrições duplicadas do mesmo participante no mesmo evento (RN06).
+  •	O sistema deve impedir novas inscrições em eventos encerrados, fechados ou já realizados.
+  •	O sistema deve permitir o cancelamento da inscrição quando aplicável.
+
+
+3.1.7	RF07 – Fila de Espera
+  O sistema deve oferecer um mecanismo de fila de espera para eventos lotados, promovendo participantes automaticamente conforme vagas 
+sejam liberadas.
+  •	O sistema deve permitir que o participante ingresse em uma fila de espera quando as vagas do evento estiverem esgotadas (RN04).
+  •	O sistema deve preservar a ordem de entrada na fila (RN05).
+  •	O sistema deve promover automaticamente participantes da fila quando novas vagas forem liberadas, respeitando a ordem de entrada.
+  •	O sistema deve atualizar a situação do participante de “em espera” para “confirmado” após a promoção.
+
+
+3.1.8	RF08 – Área do Participante
+  O sistema deve fornecer ao participante uma visão consolidada de suas inscrições e do acesso aos recursos associados a elas.
+  •	O sistema deve permitir que o participante consulte suas inscrições.
+  •	O sistema deve exibir o estado de cada participação (por exemplo: confirmado, em fila de espera, cancelado ou concluído).
+  •	O sistema deve disponibilizar, quando cabível, o recurso necessário para realização do check-in e o acesso aos certificados.
+
+
+3.1.9	RF09 – Controle de Presença / Check-in
+  O sistema deve registrar de forma confiável e audítável a presença dos participantes nos eventos.
+  •	O sistema deve disponibilizar, para cada inscrição confirmada, um identificador individual de check-in, apresentado como QR Code 
+    ou mecanismo equivalente.
+  •	O sistema deve utilizar, quando disponível, o chip identificador do crachá do aluno como forma principal de check-in.
+  •	O sistema deve permitir ao administrador validar esse identificador no momento do evento.
+  •	O sistema deve aceitar o check-in somente para participante inscrito no evento correspondente (RN07).
+  •	O sistema deve impedir que o mesmo identificador seja utilizado mais de uma vez (RN08).
+  •	O sistema deve registrar a presença e o horário em que o check-in foi efetuado.
+  •	O sistema deve informar claramente se o check-in foi aceito ou rejeitado.
+
+
+3.1.10	RF10 – Certificados
+  O sistema deve emitir certificados de participação de forma automatizada para os participantes que efetivamente compareceram ao evento.
+  •	O sistema deve gerar certificado de participação apenas para quem tiver presença registrada (RN09).
+  •	O sistema deve incluir no certificado informações essenciais, como nome do participante, evento, data e carga horária.
+  •	O sistema deve associar ao certificado um código único de verificação (RN10).
+  •	O sistema deve permitir ao participante acessar ou obter seu certificado.
+  •	O sistema deve permitir que a organização confira a validade de um certificado a partir de seu código de verificação.
+
+
+3.1.11	RF11 – Acompanhamento Administrativo Básico
+  O sistema deve fornecer ao administrador visão operacional sobre eventos, inscritos e presenças, além de permitir ajustes necessários 
+à condução do evento.
+  •	O sistema deve permitir ao administrador consultar eventos, inscritos e participantes presentes.
+  •	O sistema deve apresentar contagens básicas úteis à operação, como vagas, inscritos, pessoas em espera, presenças e certificados 
+    emitidos.
+  •	O sistema deve permitir ajustes administrativos necessários ao andamento do evento, como a alteração da quantidade de vagas.
