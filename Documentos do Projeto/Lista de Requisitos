@@ -54,7 +54,7 @@ administrativas sejam restritas a usuários autorizados.
 
 
 3.1.7	RF07 – Fila de Espera
-  O sistema deve oferecer um mecanismo de fila de espera para eventos lotados, promovendo participantes automaticamente conforme vagas 
+  O sistema deve oferecer um mecanismo de fila de espera para atividades lotadas, promovendo participantes automaticamente conforme vagas 
 sejam liberadas.
   •	O sistema deve permitir que o participante ingresse em uma fila de espera quando as vagas do evento estiverem esgotadas (RN04).
   •	O sistema deve preservar a ordem de entrada na fila (RN05).
