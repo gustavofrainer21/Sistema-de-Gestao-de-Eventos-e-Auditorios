@@ -2,64 +2,7 @@
 
 ## 3.1 Diagrama de Casos de Uso
 
-![Diagrama de Casos de Uso do Sistema de Gestão de Eventos e Auditórios] 
-@startuml
-left to right direction
-skinparam packageStyle rectangle
-skinparam usecase {
-  BackgroundColor #EAF1FB
-  BorderColor #2B5E9C
-  FontSize 12
-}
-skinparam actorStyle awesome
-
-actor "Administrador/\nOrganizador" as Admin
-actor "Participante" as Part
-actor "Sistema\n(automático)" as Sys
-
-rectangle "Sistema de Gestão de Eventos e Auditórios" {
-  usecase "UC01 - Autenticar-se\nno Sistema" as UC01
-  usecase "UC02 - Cadastrar / Manter\nLocais" as UC02
-  usecase "UC03 - Registrar Indisponibilidade\nde Local" as UC03
-  usecase "UC04 - Consultar Disponibilidade\nde Locais" as UC04
-  usecase "UC05 - Cadastrar / Manter\nEventos" as UC05
-  usecase "UC06 - Consultar Catálogo\nde Eventos" as UC06
-  usecase "UC07 - Inscrever-se\nem Evento" as UC07
-  usecase "UC08 - Cancelar\nInscrição" as UC08
-  usecase "UC09 - Ingressar na Fila\nde Espera" as UC09
-  usecase "UC10 - Promover Participante\nda Fila de Espera" as UC10
-  usecase "UC11 - Consultar Minhas\nInscrições" as UC11
-  usecase "UC12 - Realizar\nCheck-in" as UC12
-  usecase "UC13 - Obter\nCertificado" as UC13
-  usecase "UC14 - Verificar Validade\nde Certificado" as UC14
-  usecase "UC15 - Acompanhar Eventos,\nInscritos e Presenças" as UC15
-  usecase "UC16 - Ajustar Vagas\ndo Evento" as UC16
-}
-
-Admin --> UC01
-Part --> UC01
-
-Admin --> UC02
-Admin --> UC03
-Admin --> UC04
-Admin --> UC05
-Admin --> UC12
-Admin --> UC14
-Admin --> UC15
-Admin --> UC16
-
-Part --> UC06
-Part --> UC07
-Part --> UC08
-Part --> UC09
-Part --> UC11
-Part --> UC12
-Part --> UC13
-
-Sys ..> UC10 : <<automático>>
-Sys ..> UC13 : <<automático>>
-
-@enduml
+![Diagrama de Casos de Uso do Sistema de Gestão de Eventos e Auditórios](./diagrama_casos_de_uso.png)
 
 *Figura 1 – Diagrama de Casos de Uso, contemplando os atores Administrador/Organizador, Participante e Sistema (ator secundário, responsável pela promoção automática da fila de espera).*
 
