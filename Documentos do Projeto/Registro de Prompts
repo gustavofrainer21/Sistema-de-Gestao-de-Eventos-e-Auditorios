@@ -5,3 +5,16 @@
 <h4>Prompt para geração dos requisitos funcionais:</h4>
 <h5>Foi fixado o arquivo PDF de "Visão do Projeto", e o arquivo DOT de "Template - Requisitos"</h5>
 <p>Prompt: "Baseando-se no arquivo PDF de visão do projeto, e no arquivo DOT que deve ser usado como um modelo de template para a elaboração do projeto, você deve apontar os requisitos funcionais da proposta do projeto, seguindo a template sugerida." </p>
+<h4>Prompt para geração dos Casos de Uso, Diagrama e Rastreabilidade:</h4>
+<h5>Foi colado o documento com os Requisitos Funcionais (RF01 a RF11) já elaborados, o link do repositório do projeto e a descrição da entrega esperada pela squad (documento de requisitos com Contexto do Projeto, Requisitos Funcionais, Casos de Uso e Rastreabilidade, entregue em PDF com pré-texto identificando os integrantes)</h5>
+<p>Prompt: "Com base nos requisitos funcionais definidos, gere os casos de uso do sistema (diagrama e descrição de cada um) e a matriz de rastreabilidade entre requisitos funcionais e casos de uso, e monte o documento de requisitos completo em PDF, com pré-texto conforme o template da squad."</p>
+
+<h4>Prompt para separar o conteúdo em arquivos individuais para o GitHub:</h4>
+<p>Prompt: "Separe o conteúdo de Contexto do Projeto e de Casos de Uso em arquivos individuais, para eu subir separadamente no repositório do GitHub."</p>
+
+<h4>Prompt para inclusão dos integrantes e objetivos do projeto:</h4>
+<p>Prompt: "Faltou incluir os nomes dos integrantes da squad e os objetivos do projeto no documento de requisitos e no arquivo de Contexto do Projeto."</p>
+
+<h4>Prompt para geração do diagrama de casos de uso em PlantUML:</h4>
+<h5>A imagem do diagrama enviada anteriormente não estava aparecendo no GitHub por não ter sido commitada no repositório</h5>
+<p>Prompt: "Gere o código em PlantUML do diagrama de casos de uso, para eu poder exibir a imagem diretamente no Markdown do GitHub sem precisar subir um arquivo de imagem separado."</p>
