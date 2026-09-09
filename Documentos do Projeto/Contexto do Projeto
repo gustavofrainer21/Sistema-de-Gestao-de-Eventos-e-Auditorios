@@ -2,6 +2,7 @@
 
 O presente documento tem como objetivo apresentar os requisitos funcionais, os casos de uso e a matriz de rastreabilidade do Sistema de Gestão de Eventos e Auditórios, elaborado com base no documento de Visão e Escopo do projeto.
 
-O sistema tem como propósito apoiar a gestão de eventos institucionais — como palestras, cursos, workshops e demais atividades acadêmicas — e dos locais (auditórios e salas) utilizados para sua realização. A solução contempla desde o cadastro de locais e eventos, passando pela divulgação do catálogo de eventos aos participantes, inscrição e gerenciamento de fila de espera, até o controle de presença por meio de check-in e a emissão automatizada de certificados.
+O sistema tem como propósito apoiar a gestão de eventos institucionais — como palestras, cursos, workshops e demais atividades acadêmicas — e dos locais (auditórios e salas) utilizados para sua realização. 
+A solução contempla desde o cadastro de locais e eventos, passando pela divulgação do catálogo de eventos aos participantes, inscrição e gerenciamento de fila de espera, até o controle de presença por meio de check-in e a emissão automatizada de certificados.
 
 O sistema contempla dois perfis principais de usuário: **Administrador/Organizador**, responsável pelas operações administrativas (cadastro de locais e eventos, validação de check-in e acompanhamento operacional), e **Participante**, responsável por consultar o catálogo de eventos, realizar inscrições, acompanhar suas participações e obter certificados. Regras de negócio (RN) específicas — relacionadas a conflitos de agenda, confirmação de vagas, ordenação da fila de espera e emissão de certificados — são referenciadas ao longo dos requisitos funcionais (RF01 a RF11).
