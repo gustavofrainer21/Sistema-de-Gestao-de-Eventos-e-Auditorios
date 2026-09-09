@@ -1,1 +1,228 @@
+# 3. Casos de Uso
 
+## 3.1 Diagrama de Casos de Uso
+
+![Diagrama de Casos de Uso do Sistema de Gestão de Eventos e Auditórios](diagrama_casos_de_uso.png)
+
+*Figura 1 – Diagrama de Casos de Uso, contemplando os atores Administrador/Organizador, Participante e Sistema (ator secundário, responsável pela promoção automática da fila de espera).*
+
+## 3.2 Descrição dos Casos de Uso
+
+### UC01 – Autenticar-se no Sistema
+
+- **Ator(es):** Administrador/Organizador; Participante
+- **Descrição:** Permite que um usuário se identifique no sistema para acessar as funcionalidades compatíveis com seu perfil.
+- **Pré-condições:** Usuário possui cadastro válido no sistema.
+- **Fluxo Principal:**
+  1. O usuário acessa a tela de login.
+  2. O usuário informa suas credenciais (usuário/e-mail e senha).
+  3. O sistema valida as credenciais.
+  4. O sistema identifica o perfil do usuário (Administrador/Organizador ou Participante).
+  5. O sistema redireciona o usuário para a área correspondente ao seu perfil.
+- **Fluxos Alternativos:**
+  - A1. Credenciais inválidas: o sistema exibe mensagem de erro e permite nova tentativa.
+- **Pós-condições:** Usuário autenticado, com sessão ativa no sistema.
+
+### UC02 – Cadastrar / Manter Locais
+
+- **Ator(es):** Administrador/Organizador
+- **Descrição:** Permite ao administrador cadastrar, consultar, alterar e desativar locais utilizados para eventos.
+- **Pré-condições:** Usuário autenticado com perfil Administrador/Organizador (inclui UC01).
+- **Fluxo Principal:**
+  1. O administrador acessa o módulo de locais.
+  2. O administrador seleciona a operação desejada (cadastrar, consultar, alterar ou desativar).
+  3. O administrador informa/edita nome, capacidade e informações de localização do local.
+  4. O sistema valida os dados informados.
+  5. O sistema grava as alterações e confirma a operação.
+- **Fluxos Alternativos:**
+  - A1. Dados obrigatórios ausentes ou inválidos: o sistema exibe mensagem de erro e solicita correção.
+- **Pós-condições:** Cadastro de locais atualizado.
+
+### UC03 – Registrar Indisponibilidade de Local
+
+- **Ator(es):** Administrador/Organizador
+- **Descrição:** Permite bloquear a agenda de um local em datas/horários específicos.
+- **Pré-condições:** Local previamente cadastrado (UC02).
+- **Fluxo Principal:**
+  1. O administrador seleciona o local desejado.
+  2. O administrador informa o período de indisponibilidade.
+  3. O sistema valida se o período não conflita com eventos já confirmados no local.
+  4. O sistema grava o bloqueio de agenda.
+- **Fluxos Alternativos:**
+  - A1. Conflito com evento já confirmado: o sistema alerta o administrador e não permite o bloqueio sem tratamento prévio.
+- **Pós-condições:** Local marcado como indisponível no período informado.
+
+### UC04 – Consultar Disponibilidade de Locais
+
+- **Ator(es):** Administrador/Organizador
+- **Descrição:** Permite consultar locais disponíveis para uma data, horário e capacidade desejados, apoiando o cadastro de eventos.
+- **Pré-condições:** Existirem locais cadastrados no sistema.
+- **Fluxo Principal:**
+  1. O administrador informa data, intervalo de horário e capacidade desejada.
+  2. O sistema verifica os locais compatíveis com os critérios e sem conflito de agenda.
+  3. O sistema apresenta a lista de locais disponíveis.
+- **Fluxos Alternativos:**
+  - A1. Nenhum local disponível: o sistema informa ao usuário que não há local compatível com os critérios.
+- **Pós-condições:** Lista de locais disponíveis apresentada ao administrador. (Utilizado por UC05 durante a criação de eventos.)
+
+### UC05 – Cadastrar / Manter Eventos
+
+- **Ator(es):** Administrador/Organizador
+- **Descrição:** Permite criar, consultar, alterar e encerrar eventos, incluindo a organização de subeventos vinculados.
+- **Pré-condições:** Usuário autenticado com perfil Administrador/Organizador.
+- **Fluxo Principal:**
+  1. O administrador acessa o módulo de eventos.
+  2. O administrador informa título, descrição, data, horário, local e quantidade de vagas do evento.
+  3. O sistema verifica conflito de horário do local selecionado (inclui UC04).
+  4. O administrador pode associar subeventos (palestras/sessões) ao evento principal.
+  5. O sistema grava o evento e define seu estado inicial (ex.: aberto).
+- **Fluxos Alternativos:**
+  - A1. Conflito de horário no local: o sistema impede a gravação e sugere nova consulta de disponibilidade (UC04).
+  - A2. Encerramento de evento: o administrador altera o estado do evento para "encerrado", impedindo novas inscrições.
+- **Pós-condições:** Evento criado/atualizado e visível conforme seu estado.
+
+### UC06 – Consultar Catálogo de Eventos
+
+- **Ator(es):** Participante
+- **Descrição:** Permite ao participante visualizar os eventos disponíveis e seus detalhes para decidir sobre a inscrição.
+- **Pré-condições:** Existirem eventos cadastrados no sistema.
+- **Fluxo Principal:**
+  1. O participante acessa o catálogo de eventos.
+  2. O sistema apresenta a lista de eventos com data, horário, local e situação das vagas.
+  3. O participante seleciona um evento para visualizar detalhes e subeventos, quando existirem.
+- **Fluxos Alternativos:** Não se aplica.
+- **Pós-condições:** Participante com informações suficientes para decidir pela inscrição.
+
+### UC07 – Inscrever-se em Evento
+
+- **Ator(es):** Participante
+- **Descrição:** Permite ao participante se inscrever em um evento aberto.
+- **Pré-condições:** Participante autenticado (UC01); evento no estado "aberto".
+- **Fluxo Principal:**
+  1. O participante seleciona o evento desejado (a partir de UC06).
+  2. O participante confirma a inscrição.
+  3. O sistema verifica se há vagas disponíveis e se não há inscrição duplicada (RN06).
+  4. O sistema confirma a inscrição do participante.
+- **Fluxos Alternativos:**
+  - A1. Vagas esgotadas: o sistema oferece a opção de ingressar na fila de espera (UC09).
+  - A2. Inscrição duplicada: o sistema impede a nova inscrição e informa que o participante já está inscrito.
+  - A3. Evento encerrado/fechado: o sistema impede a inscrição e informa o participante.
+- **Pós-condições:** Inscrição confirmada e visível na área do participante (UC11).
+
+### UC08 – Cancelar Inscrição
+
+- **Ator(es):** Participante
+- **Descrição:** Permite ao participante cancelar uma inscrição previamente confirmada.
+- **Pré-condições:** Existir inscrição confirmada do participante no evento.
+- **Fluxo Principal:**
+  1. O participante acessa suas inscrições (UC11).
+  2. O participante seleciona a inscrição a ser cancelada.
+  3. O sistema confirma o cancelamento.
+  4. O sistema libera a vaga, possibilitando a promoção de participante da fila de espera (UC10).
+- **Fluxos Alternativos:** Não se aplica.
+- **Pós-condições:** Inscrição cancelada; vaga liberada.
+
+### UC09 – Ingressar na Fila de Espera
+
+- **Ator(es):** Participante
+- **Descrição:** Permite ao participante entrar na fila de espera de um evento sem vagas disponíveis.
+- **Pré-condições:** Evento com vagas esgotadas (RN04).
+- **Fluxo Principal:**
+  1. O participante solicita ingresso na fila de espera do evento.
+  2. O sistema registra o participante ao final da fila, preservando a ordem de entrada (RN05).
+  3. O sistema confirma o ingresso na fila e atualiza a situação do participante para "em espera".
+- **Fluxos Alternativos:** Não se aplica.
+- **Pós-condições:** Participante registrado na fila de espera.
+
+### UC10 – Promover Participante da Fila de Espera
+
+- **Ator(es):** Sistema (execução automática)
+- **Descrição:** Promove automaticamente o próximo participante da fila de espera quando uma vaga é liberada.
+- **Pré-condições:** Existir vaga liberada (ex.: cancelamento — UC08) e fila de espera não vazia.
+- **Fluxo Principal:**
+  1. O sistema identifica a liberação de uma vaga no evento.
+  2. O sistema seleciona o próximo participante da fila, respeitando a ordem de entrada (RN05).
+  3. O sistema altera a situação do participante de "em espera" para "confirmado".
+  4. O sistema atualiza a inscrição do participante promovido.
+- **Fluxos Alternativos:**
+  - A1. Fila de espera vazia: o sistema apenas mantém a vaga disponível para novas inscrições.
+- **Pós-condições:** Participante promovido consta como inscrito confirmado.
+
+### UC11 – Consultar Minhas Inscrições
+
+- **Ator(es):** Participante
+- **Descrição:** Fornece ao participante uma visão consolidada de suas inscrições e acesso aos recursos associados.
+- **Pré-condições:** Participante autenticado (UC01).
+- **Fluxo Principal:**
+  1. O participante acessa a área "Minhas Inscrições".
+  2. O sistema lista as inscrições do participante com sua situação (confirmado, em fila de espera, cancelado ou concluído).
+  3. O participante acessa, quando cabível, o identificador de check-in (UC12) ou o certificado (UC13) de uma inscrição.
+- **Fluxos Alternativos:** Não se aplica.
+- **Pós-condições:** Participante com visão atualizada de suas participações.
+
+### UC12 – Realizar Check-in
+
+- **Ator(es):** Administrador/Organizador (principal); Participante (secundário)
+- **Descrição:** Registra de forma auditável a presença do participante no evento.
+- **Pré-condições:** Inscrição confirmada existente; evento em andamento.
+- **Fluxo Principal:**
+  1. O participante apresenta seu identificador de check-in (QR Code ou chip do crachá).
+  2. O administrador valida o identificador no sistema.
+  3. O sistema verifica se o identificador corresponde a uma inscrição confirmada no evento (RN07) e se ainda não foi utilizado (RN08).
+  4. O sistema registra a presença e o horário do check-in.
+  5. O sistema informa se o check-in foi aceito.
+- **Fluxos Alternativos:**
+  - A1. Identificador já utilizado ou inválido: o sistema rejeita o check-in e informa o motivo.
+- **Pós-condições:** Presença do participante registrada, habilitando a emissão de certificado (UC13).
+
+### UC13 – Obter Certificado
+
+- **Ator(es):** Participante (principal); Sistema (secundário — geração automática)
+- **Descrição:** Permite ao participante obter o certificado de participação após comparecimento registrado.
+- **Pré-condições:** Presença do participante registrada no evento (UC12) (RN09).
+- **Fluxo Principal:**
+  1. O sistema gera automaticamente o certificado para participantes com presença registrada, incluindo nome, evento, data, carga horária e código único de verificação (RN10).
+  2. O participante acessa a área de certificados (a partir de UC11).
+  3. O participante obtém/baixa o certificado.
+- **Fluxos Alternativos:**
+  - A1. Participante sem presença registrada: o sistema não disponibiliza o certificado para o evento correspondente.
+- **Pós-condições:** Certificado disponibilizado ao participante.
+
+### UC14 – Verificar Validade de Certificado
+
+- **Ator(es):** Administrador/Organizador (ou verificador autorizado)
+- **Descrição:** Permite conferir a validade de um certificado emitido a partir de seu código de verificação.
+- **Pré-condições:** Certificado emitido com código único de verificação (UC13).
+- **Fluxo Principal:**
+  1. O usuário informa o código de verificação do certificado.
+  2. O sistema localiza o certificado correspondente.
+  3. O sistema apresenta os dados de validade do certificado (participante, evento, data, carga horária).
+- **Fluxos Alternativos:**
+  - A1. Código inválido ou inexistente: o sistema informa que o certificado não foi localizado.
+- **Pós-condições:** Validade do certificado confirmada ou refutada.
+
+### UC15 – Acompanhar Eventos, Inscritos e Presenças
+
+- **Ator(es):** Administrador/Organizador
+- **Descrição:** Fornece ao administrador visão operacional dos eventos, inscritos, fila de espera, presenças e certificados emitidos.
+- **Pré-condições:** Usuário autenticado com perfil Administrador/Organizador.
+- **Fluxo Principal:**
+  1. O administrador acessa o painel administrativo.
+  2. O sistema apresenta contagens de vagas, inscritos, pessoas em espera, presenças e certificados emitidos por evento.
+  3. O administrador consulta detalhes de inscritos e participantes presentes.
+- **Fluxos Alternativos:** Não se aplica.
+- **Pós-condições:** Administrador com visão atualizada da operação do evento.
+
+### UC16 – Ajustar Vagas do Evento
+
+- **Ator(es):** Administrador/Organizador
+- **Descrição:** Permite ao administrador alterar a quantidade de vagas de um evento conforme necessidade operacional.
+- **Pré-condições:** Evento previamente cadastrado (UC05).
+- **Fluxo Principal:**
+  1. O administrador acessa os detalhes do evento (a partir de UC15).
+  2. O administrador informa a nova quantidade de vagas.
+  3. O sistema valida e grava o novo quantitativo.
+  4. O sistema verifica se a alteração libera vagas para promoção de participantes da fila (UC10).
+- **Fluxos Alternativos:**
+  - A1. Redução abaixo do número de inscritos confirmados: o sistema alerta o administrador antes de confirmar a alteração.
+- **Pós-condições:** Quantidade de vagas do evento atualizada.
