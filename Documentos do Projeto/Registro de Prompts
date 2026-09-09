@@ -14,7 +14,3 @@
 
 <h4>Prompt para inclusão dos integrantes e objetivos do projeto:</h4>
 <p>Prompt: "Faltou incluir os nomes dos integrantes da squad e os objetivos do projeto no documento de requisitos e no arquivo de Contexto do Projeto."</p>
-
-<h4>Prompt para geração do diagrama de casos de uso em PlantUML:</h4>
-<h5>A imagem do diagrama enviada anteriormente não estava aparecendo no GitHub por não ter sido commitada no repositório</h5>
-<p>Prompt: "Gere o código em PlantUML do diagrama de casos de uso, para eu poder exibir a imagem diretamente no Markdown do GitHub sem precisar subir um arquivo de imagem separado."</p>
