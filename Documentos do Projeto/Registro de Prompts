@@ -15,3 +15,11 @@ Prompt: "Separe o conteúdo de Contexto do Projeto e de Casos de Uso em arquivos
 
 Prompt para inclusão dos integrantes e objetivos do projeto:
 Prompt: "Faltou incluir os nomes dos integrantes da squad e os objetivos do projeto no documento de requisitos e no arquivo de Contexto do Projeto."
+
+Prompt para geração dos Wireframes do projeto:
+Foi fixado o arquivo PDF da primeira entrega, e o link do github do projeto.
+Prompt: "Crie wireframes com base no conteúdo do repositório GitHub e no arquivo PDF da primeira entrega do projeto anexado. Os wireframes devem refletir os requisitos funcionais, objetivos de negócio e fluxos de interação identificados na documentação. Utilize as informações do PDF como fonte principal para compreender a proposta do projeto e empregue o conteúdo do GitHub para complementar a definição das funcionalidades e telas."
+
+Prompt para a gereção dos diagramas:
+Foi fixado o arquivo PDF da primeira entrega, e o link do github do projeto.
+Prompt: "Com base no arquivo PDF da primeira entrega e no conteúdo do repositório GitHub, elabore os diagramas necessários para representar o sistema.
