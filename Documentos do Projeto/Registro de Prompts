@@ -23,3 +23,21 @@ Prompt: "Crie wireframes com base no conteúdo do repositório GitHub e no arqui
 Prompt para a gereção dos diagramas:
 Foi fixado o arquivo PDF da primeira entrega, e o link do github do projeto.
 Prompt: "Com base no arquivo PDF da primeira entrega e no conteúdo do repositório GitHub, elabore os diagramas necessários para representar o sistema.
+
+Prompt para a implementação do projeto:
+Prompt: "Definições para implantação da aplicação:
+
+Front-end
+-Necessário utilizar Vue ou React
+
+Back-end (Java)
+-Necessário usar o Framework Spring Boot
+-Necessário usar o Gerenciador de Identidade Keycloak
+
+Arquitetura
+-Confome diagrama disponivel aqui no moodle
+
+Banco de Dados
+-Necessário utilizar BD Relacional PostgresDB ou MariaDB
+
+Siga esse plano de implementação com base no repositorio indicado."
