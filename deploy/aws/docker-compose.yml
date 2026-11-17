@@ -1,0 +1,31 @@
+# Producao na AWS: web (nginx + React) -> api (Spring Boot) e keycloak. Banco no Supabase.
+# Variaveis vem do arquivo .env gerado pelo user-data.sh.
+services:
+  keycloak:
+    build: { context: ../../keycloak }
+    environment:
+      FRONTEND_URL: https://${PUBLIC_HOST}
+      KC_HTTP_RELATIVE_PATH: /auth
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_ADMIN_PASSWORD}
+    restart: unless-stopped
+  api:
+    build: { context: ../../backend }
+    environment:
+      DB_URL: ${DB_URL}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      KEYCLOAK_ISSUER: https://${PUBLIC_HOST}/auth/realms/eventos
+      CORS_ORIGINS: https://${PUBLIC_HOST}
+    restart: unless-stopped
+  web:
+    build:
+      context: ../..
+      dockerfile: deploy/aws/Dockerfile.web
+      args:
+        VITE_KEYCLOAK_URL: https://${PUBLIC_HOST}/auth
+    environment:
+      PUBLIC_HOST: ${PUBLIC_HOST}
+    ports: ["80:80"]
+    depends_on: [api, keycloak]
+    restart: unless-stopped

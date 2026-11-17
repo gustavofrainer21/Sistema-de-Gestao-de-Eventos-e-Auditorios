@@ -1,0 +1,78 @@
+{
+  "realm": "eventos",
+  "displayName": "Gestão de Eventos e Auditórios",
+  "enabled": true,
+  "sslRequired": "none",
+  "registrationAllowed": true,
+  "loginWithEmailAllowed": true,
+  "roles": {
+    "realm": [
+      {
+        "name": "ADMIN",
+        "description": "Administrador/Organizador"
+      },
+      {
+        "name": "PARTICIPANTE",
+        "description": "Participante"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "eventos-frontend",
+      "name": "Front-end React",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [
+        "${FRONTEND_URL}/*"
+      ],
+      "webOrigins": [
+        "${FRONTEND_URL}"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "${FRONTEND_URL}/*"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "organizador",
+      "email": "organizador@eventos.local",
+      "firstName": "Ana",
+      "lastName": "Organizadora",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "username": "aluno",
+      "email": "aluno@eventos.local",
+      "firstName": "Bruno",
+      "lastName": "Aluno",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "aluno123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "PARTICIPANTE"
+      ]
+    }
+  ]
+}

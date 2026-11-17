@@ -1,0 +1,13 @@
+# Keycloak local (gerenciador de identidade). O banco PostgreSQL fica no Supabase.
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0
+    command: start-dev --import-realm
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      FRONTEND_URL: http://localhost:5173
+    ports:
+      - "8180:8080"
+    volumes:
+      - ./keycloak/realm-eventos.json:/opt/keycloak/data/import/realm-eventos.json:ro

@@ -20,3 +20,14 @@ esperada de participantes. <br>
 evento. <br>
 • Permitir que organizadores acompanhem informações básicas sobre eventos, inscrições, presença e
 certificação. <br>
+
+<br>
+
+<h2>Implementação e Implantação</h2>
+
+O sistema está implementado e publicado na AWS (Learner Lab):
+
+• **Acesso:** https://uvnnlhqp9h.execute-api.us-east-1.amazonaws.com/ (usuários de teste: `organizador` / `admin123` e `aluno` / `aluno123`). <br>
+• **Stack:** React (Vite + TypeScript), Java 21 + Spring Boot 3.3, Keycloak 26 e PostgreSQL (Supabase). <br>
+• **Código:** `frontend/`, `backend/`, `keycloak/`, `db/` (migrations) e `deploy/aws/` (implantação). <br>
+• **Documentação técnica:** [docs/IMPLEMENTACAO.md](docs/IMPLEMENTACAO.md) (arquitetura, execução local, endpoints, regras de negócio, implantação na AWS e comparação com o diagrama do Moodle). <br>
