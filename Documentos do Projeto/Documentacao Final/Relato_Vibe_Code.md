@@ -1,5 +1,7 @@
 # Relato sobre as Estratégias Utilizadas no Vibe Code
 
+> **Rascunho** feito a partir do que foi realizado com a IA (Claude). Cada integrante deve acrescentar, na seção 6, sua experiência pessoal (os relatos individuais por semana ficam em `Relatos-Individuais-IA/`).
+
 ## 1. Abordagem geral
 O sistema foi construído conversando com a IA em passos curtos e verificáveis: primeiro o modelo de dados e as regras, depois a API, o front-end e, por último, a implantação. A IA escreveu e executou o código; a equipe definiu o que construir, decidiu e validou os resultados.
 
@@ -30,3 +32,9 @@ O sistema foi construído conversando com a IA em passos curtos e verificáveis:
 
 ## 5. Lições aprendidas
 Dar contexto claro e rastreável, exigir testes, validar no ambiente real e registrar decisões. A IA acelera, mas a responsabilidade pelas decisões e pela segurança continua da equipe.
+
+## 6. Experiência individual (preencher)
+- André Drumond: _…_
+- Eduardo Bighetti: _…_
+- Gabriel Magdaleno: _…_
+- Gustavo Frainer: _…_

@@ -75,21 +75,21 @@ Para reexecutar: abrir o SQL Editor do Supabase (ou `psql`), colar o conteúdo d
 
 ## 4. Casos de aceitação pela interface (TC-UI)
 
-Execução em 23/11/2026 na aplicação em produção (AWS), com os usuários `aluno` e `organizador`. 15 dos 18 casos foram executados e aprovados; TC-UI-04, 10 e 11 permanecem pendentes. A coluna Evidência aponta a captura de tela que será anexada em `evidencias/`.
+Execução em 23/11/2026 na aplicação em produção (AWS), com os usuários `aluno` e `organizador`. Todos os 18 casos foram executados e aprovados. A coluna Evidência aponta a captura de tela que será anexada em `evidencias/`.
 
 | ID | Requisito | Caso de teste | Resultado esperado | Status | Evidência |
 |---|---|---|---|---|---|
 | TC-UI-01 | RF01 | Acessar o sistema sem login | Redireciona para a tela de login do Keycloak | Aprovado (23/11/2026; sem token, o site abre o login do Keycloak) | (captura a anexar) |
 | TC-UI-02 | RF01 | Login como participante | Entra no catálogo; não vê o menu administrativo | Aprovado (23/11/2026; usuário `aluno` vê só Catálogo e Minhas inscrições) | evidencias/TC-UI-02.jpg |
 | TC-UI-03 | RF01 | Login como administrador | Vê o painel e as telas administrativas | Aprovado (23/11/2026; `organizador` vê Painel, Locais, Novo evento e Verificar certificado) | (sem captura) |
-| TC-UI-04 | RF05 | Consultar catálogo e detalhes de evento | Lista data, horário, local e vagas; mostra subeventos | Pendente | evidencias/TC-UI-04.png |
+| TC-UI-04 | RF05 | Consultar catálogo e detalhes de evento | Lista data, horário, local e vagas; mostra subeventos | Aprovado (23/11/2026; catálogo lista título, estado, data, local e vagas; detalhes em "Ver detalhes") | evidencias/TC-UI-04.jpg |
 | TC-UI-05 | RF06 | Inscrever-se em evento com vaga | Inscrição CONFIRMADA | Aprovado (23/11/2026; "Inscrição confirmada!"; com 1 vaga o evento passa a Lotado) | evidencias/TC-UI-05.jpg |
 | TC-UI-06 | RN06 | Inscrever-se duas vezes no mesmo evento | Mensagem de inscrição duplicada | Aprovado (23/11/2026; "Você já está inscrito neste evento.") | evidencias/TC-UI-06.jpg |
 | TC-UI-07 | RF07 | Inscrever-se em evento lotado (fila) | Situação EM ESPERA com posição na fila | Aprovado (23/11/2026; "Você entrou na fila de espera."; contador mostra 1 na fila) | evidencias/TC-UI-07.jpg |
 | TC-UI-08 | RN05 | Cancelar inscrição e verificar promoção da fila | Primeiro da fila vira CONFIRMADO | Aprovado (23/11/2026; após o cancelamento, Bruno Aluno aparece Confirmada, 1/1 confirmados e 0 na fila) | evidencias/TC-UI-08.jpg |
 | TC-UI-09 | RF08 | Área do participante | Lista inscrições com situação e QR/código de check-in | Aprovado (23/11/2026; mostra situação Cancelada/Confirmada e QR Code de check-in) | evidencias/TC-UI-09.jpg |
-| TC-UI-10 | RF02 | Administrador cadastra, edita e desativa local | Local salvo; desativado não aceita eventos | Pendente | evidencias/TC-UI-10.png |
-| TC-UI-11 | RF03 | Consultar locais disponíveis por data/horário/capacidade | Só locais compatíveis são exibidos | Pendente | evidencias/TC-UI-11.png |
+| TC-UI-10 | RF02 | Administrador cadastra, edita e desativa local | Local salvo; desativado não aceita eventos | Aprovado (23/11/2026; local criado, editado (nome e capacidade) e desativado; aparece "Desativado") | evidencias/TC-UI-10.jpg |
+| TC-UI-11 | RF03 | Consultar locais disponíveis por data/horário/capacidade | Só locais compatíveis são exibidos | Aprovado (23/11/2026; para 24/11 10:00–12:00 e 30 lugares, só os auditórios livres aparecem; Sala de Workshop 01, ocupada, e o local desativado ficam de fora) | evidencias/TC-UI-11.jpg |
 | TC-UI-12 | RN01/RN02 | Criar evento em conflito de agenda | Mensagem de conflito de agenda | Aprovado (23/11/2026; mensagem "Já existe um evento neste local e horário.") | evidencias/TC-UI-12.jpg |
 | TC-UI-13 | RF09 | Administrador faz check-in com código válido | Presença registrada com horário | Aprovado (23/11/2026; "Check-in ACEITO" com horário; coluna Presença marcada) | evidencias/TC-UI-13.jpg |
 | TC-UI-14 | RN08 | Repetir o check-in com o mesmo código | Rejeitado | Aprovado (23/11/2026; "Check-in REJEITADO: Check-in já registrado para esta inscrição.") | evidencias/TC-UI-14.jpg |
