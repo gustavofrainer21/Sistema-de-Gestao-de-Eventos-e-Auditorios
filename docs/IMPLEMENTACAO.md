@@ -91,7 +91,7 @@ npm run dev                 # http://localhost:5173
 | `GET /api/painel`, `GET /api/eventos/{id}/inscritos`, `PATCH /api/eventos/{id}/vagas` | ADMIN | RF11 / UC15, UC16 |
 
 ## Testes feitos
-O banco foi validado com 27 cenários em uma transação desfeita ao final (conflito de agenda, capacidade, bloqueios, lotação, fila FIFO, promoção ao cancelar, ajuste de vagas, check-in duplo/imutável/de outro evento, certificado sem presença, verificação de código, painel).
+O banco foi validado com 46 casos automatizados (`db/testes/testes_regras.sql`, ver Plano de Teste) em uma transação desfeita ao final (conflito de agenda, capacidade, bloqueios, lotação, fila FIFO, promoção ao cancelar, ajuste de vagas, check-in duplo/imutável/de outro evento, certificado sem presença, verificação de código, painel).
 O front-end passa em `tsc --strict` e `vite build`.
 
 ---

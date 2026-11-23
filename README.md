@@ -31,3 +31,6 @@ O sistema está implementado e publicado na AWS (Learner Lab):
 • **Stack:** React (Vite + TypeScript), Java 21 + Spring Boot 3.3, Keycloak 26 e PostgreSQL (Supabase). <br>
 • **Código:** `frontend/`, `backend/`, `keycloak/`, `db/` (migrations) e `deploy/aws/` (implantação). <br>
 • **Documentação técnica:** [docs/IMPLEMENTACAO.md](docs/IMPLEMENTACAO.md) (arquitetura, execução local, endpoints, regras de negócio, implantação na AWS e comparação com o diagrama do Moodle). <br>
+
+## Documentação final
+Em `Documentos do Projeto/Documentacao Final/`: [Especificação Atualizada](<Documentos do Projeto/Documentacao Final/Especificacao_Atualizada.md>), [Plano de Teste e Evidências](<Documentos do Projeto/Documentacao Final/Plano_de_Teste.md>), [Relatório de Pen Test](<Documentos do Projeto/Documentacao Final/Relatorio_PenTest.md>) e [Relato do Vibe Code](<Documentos do Projeto/Documentacao Final/Relato_Vibe_Code.md>). Testes automatizados do banco: `db/testes/testes_regras.sql`.
